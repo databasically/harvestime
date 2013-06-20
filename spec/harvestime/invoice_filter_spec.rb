@@ -2,12 +2,12 @@ require 'spec_helper'
 require 'harvested'
 require 'harvestime'
 require File.expand_path('lib/harvestime/invoice_filter')
-
+include Harvestime
 describe 'Harvestime::InvoiceFilter' do
-  let(:client) { Harvest.hardy_client('sandboxbasically',
-                                      'nick.s.fausnight@gmail.com',
-                                      'sandbox') }
-  let(:filter) { Harvestime::InvoiceFilter.new( client ) }
+  build_harvest_client('sandboxbasically',
+                                  'nick.s.fausnight@gmail.com',
+                                  'sandbox') 
+  let(:filter) { Harvestime::InvoiceFilter.new }
   it "should build an InvoiceCollection" do
     expect( filter.all_invoices ).to be_a_kind_of( Harvestime::InvoiceCollection )
     expect( filter.all_invoices.retrieve.size ).to eq( 3 )
