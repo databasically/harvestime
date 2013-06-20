@@ -1,13 +1,16 @@
 require'harvested'
-require'harvestime'
 module Harvestime 
   class InvoiceFilter
+    def initialize(client)
+      @client = client
+    end
+    
     def all_with_status( state )
-        harvest.invoices.all( status: state.to_s )
+      @client.invoices.all( status: state.to_s )
     end
       
     def all_invoices
-      harvest.invoices.all 
+      @client.invoices.all 
     end
     
     def outstanding_invoices
@@ -30,39 +33,24 @@ module Harvestime
       all_with_status( :paid )
     end
     
-    def all_by_client_id(client_id)
-      invoices = all_invoices
+    def all_by_client_id( client_id )
       collection = []
-      invoices.each |invoice| do
-        collection << invoice if invoice.client_id = client_id
+      all_invoices.each do |invoice|
+        collection << invoice if invoice.client_id == client_id
       end
       collection
     end
     
-    def all_with_status_and_client( state, client_id)
-      invoices = all_with_status( state )
+    def all_with_status_and_client( state, client_id )
       collection = []
-      invoices.each |invoice| do
-        collection << inoice if invoice.client_id = client_id
+      all_with_status( state ).each do |invoice|
+        collection << invoice if invoice.client_id == client_id
       end
       collection
     end
     
-    def outstanding_by_client_id( client_id)
+    def outstanding_by_client_id( client_id )
       all_with_status_and_client( :unpaid, client_id )
     end
-    
-    
-  # TODO: Put this at a higher scope
-    def harvest_client
-      Harvest.hardy_client('sandboxbasically', 'nick.s.fausnight@gmail.com', 'sandbox')
-    end
-    
-    
-  # TODO: MAKE SOMETHING LIKE THIS, BUILD CLIENT OUTSIDE 
-   def harvest
-     @harvest ||= harvest_client
-   end
-    
   end
 end
