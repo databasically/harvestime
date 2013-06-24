@@ -10,9 +10,10 @@ describe 'Harvestime::TimeFilter' do
   
   it 'should scale hours down based on a given modifier', focus: :true do
     modifier = 0.8
-    time = client.time.all[0]
+    time = client.time.all(Time.parse('6/21'))[0]
     hours = time.hours
-    expect( time_filter.scale_time_entry( time, modifier ) ).to eq( hours * modifier )
+    expect( time_filter.scale_entry( time, modifier ) )
+      .to eq( hours * modifier )
   end
 
   it 'should transfer hours from another account' do
@@ -20,7 +21,8 @@ describe 'Harvestime::TimeFilter' do
                                            'sandbox2@nsf.33mail.com',
                                            'sandbox')
     moving_hours = 12
-    expect( time_filter.move_hours_from_account( moving_hours, second_account ) ).to eq( check_moved_hours )
+    expect( time_filter.move_hours_from_account( moving_hours, second_account ))
+      .to eq( check_moved_hours )
   end
 
 end
