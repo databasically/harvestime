@@ -1,6 +1,7 @@
 require 'harvestime/version'
 require 'harvestime/invoice_collection'
 require 'harvestime/invoice_filter'
+require 'harvestime/time_filter'
 require 'harvestime/invoice'
 require 'harvested'
 module Harvestime
