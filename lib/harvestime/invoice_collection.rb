@@ -1,13 +1,13 @@
 module Harvestime
   class InvoiceCollection
     
-    def initialize( *args )
+    def initialize(*args)
       @container = []
-      self.add( args )
+      self.add(args)
     end
     
-    def add( *args )
-      @container.concat( args )
+    def add(*args)
+      @container.concat(args)
       clean_up
       args
     end
