@@ -3,9 +3,9 @@ require 'harvested'
 require 'harvestime'
 require File.expand_path('lib/harvestime/invoice_filter')
 describe 'Harvestime::InvoiceFilter' do
-  let(:client) { Harvest.hardy_client('sandboxbasically',
-                                       'nick.s.fausnight@gmail.com',
-                                       'sandbox') }
+  let(:client) { Harvest.hardy_client('subdomain',
+                                       'username@email.com',
+                                       'password') }
   let(:filter) { Harvestime::InvoiceFilter.new(client) }
   it "should build an InvoiceCollection" do
     expect(filter.all_invoices).to be_a_kind_of(Array)

@@ -16,7 +16,7 @@ module Harvestime
     def all_times
       @client.time.all
     end
-
+                  
     def all_times_in_date(time)
       @client.time.all(time)
     end

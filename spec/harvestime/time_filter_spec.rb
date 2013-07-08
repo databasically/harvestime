@@ -1,16 +1,16 @@
 require 'spec_helper'
 require 'harvested'
-
+  
 require File.expand_path('lib/harvestime/time_filter.rb')
 describe 'Harvestime::TimeFilter' do
   # Interface one
-  let(:client) {Harvest.hardy_client('sandboxbasically',
-                                     'nick.s.fausnight@gmail.com',
-                                     'sandbox')}
+  let(:client) {Harvest.hardy_client('subdomain',
+                                       'username@email.com',
+                                       'password')}
   # Interface two
-  let(:client2) {Harvest.hardy_client('sandboxbasically',
-                                      'employee@nsf.33mail.com',
-                                      'q4KHl80I')}
+  let(:client2) {Harvest.hardy_client('subdomain',
+                                       'username@email.com',
+                                       'password')}
   # Get rid of this
   let(:time_filter) { Harvestime::TimeFilter.new(client) }
   
