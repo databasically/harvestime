@@ -1,6 +1,8 @@
 # Harvestime
+Utility library for streamlining and automating time and invoice management in Harvest
 
-TODO: Write a gem description
+Forks and pulls welcome, will be using github for issue tracking as well.
+
 
 ## Installation
 
@@ -18,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a Harvest interface with:
+
+    Harvestime.interface('subdomain','username','password')
+    
+    
 
 ## Contributing
 

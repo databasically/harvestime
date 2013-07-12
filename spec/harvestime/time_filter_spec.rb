@@ -34,7 +34,7 @@ describe 'Harvestime::TimeFilter' do
     hours = 12
     project_id = client.projects.all[0].id
     task_id = client.tasks.all[0].id
-    spent_at = Time.now
+    spent_at = Date.today
 
     entry = time_filter.build_entry(notes: notes,
                                     hours: hours,

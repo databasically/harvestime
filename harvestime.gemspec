@@ -6,8 +6,8 @@ require 'harvestime/version'
 Gem::Specification.new do |spec|
   spec.name          = "harvestime"
   spec.version       = Harvestime::VERSION
-  spec.authors       = ["Nick Fausnight"]
-  spec.email         = ["nick.s.fausnight@gmail.com"]
+  spec.authors       = ["Nick Fausnight","Wes Garrison"]
+  spec.email         = ["nick.s.fausnight@gmail.com","wes@databasically.com"]
   spec.description   = %q{For streamlining and automating time and invoice management in Harvest.}
   spec.summary       = %q{Streamline. Automate. Harvest.}
   spec.homepage      = ""
