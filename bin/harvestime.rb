@@ -94,7 +94,7 @@ class HarvestimeCLI < Thor
                                           credentials[options[:from_account]][:password]),
     options[:start_date], options[:end_date])
   end
-  
+
   desc 'purge_times [ACCOUNT_INDEX] <FORCE> <START_DATE> <END_DATE>',
        'Delete all time entries from today or a given date range'
   method_option :account_index, required: true, aliases: '-a', type: :numeric, banner: 'Account index to clear time entries of'
